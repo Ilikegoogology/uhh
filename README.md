@@ -9,3 +9,4 @@ FILE OVERVIEW:<br>
 `script.js` will contain all other stuff.
 
 Add more.
+Credits to Patcail (ordinal markup creator) and GithubCoder2021 (ordinal markup hacked creator) 
