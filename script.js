@@ -284,8 +284,8 @@ function render() {
     if (get("infinityButton").innerHTML != "Infinity to gain " + infinityButtonText + " Ordinal Points (I)") get("infinityButton").innerHTML = "Infinity to gain " + infinityButtonText + " Ordinal Points (I)"
     if (get("infinityButton2").innerHTML != "+" + infinityButtonText) get("infinityButton2").innerHTML = "+" + infinityButtonText
   } else {
-    get("infinityButton").innerHTML = "Reach " + (game.leastBoost<=15?(game.leastBoost<=1.5?10:100):10240) +" to Infinity"
-    get("infinityButton2").innerHTML = "Reach " + (game.leastBoost<=15?(game.leastBoost<=1.5?10:100):10240) +" to Infinity"
+    get("infinityButton").innerHTML = "Reach " + (game.leastBoost<=15?(game.leastBoost<=1.5?10:100):102) +" to Infinity"
+    get("infinityButton2").innerHTML = "Reach " + (game.leastBoost<=15?(game.leastBoost<=1.5?10:100):102) +" to Infinity"
   }
   get("challengeSubTab").style.display=(game.upgrades.includes(4) ? "inline-block" : "none")
   get("incrementySubTab").style.display=(game.upgrades.includes(8) ? "inline-block" : "none")
@@ -543,7 +543,7 @@ function changeColor() {
 
 function changeInt() {
   let newms = prompt("Please type in the new millisecond interval (20≤x≤1000)")
-  if (20<=Number(newms) && Number(newms)<=1000 && (!isNaN(Number(newms)))) {
+  if (10<=Number(newms) && Number(newms)<=1000 && (!isNaN(Number(newms)))) {
     game.msint = Math.round(Number(newms))
     save()
     location.reload()
