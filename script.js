@@ -1,8 +1,8 @@
 //Yeah, I know it's pretty unorganized at the moment
-let factorMult = 10000
-let bfactorMult = 10000
-let succAutoMult = 10000
-let limAutoMult = 10000
+let factorMult = 1e30
+let bfactorMult = 1e30
+let succAutoMult = 1e30
+let limAutoMult = 1e30
 let ordMarks=[]
 let numMarks=[]
 setMarks()
@@ -58,9 +58,9 @@ function increment(manmade=0) {
   if (manmade==0 || game.manualClicksLeft >= 0.5) {
     if (manmade==1 && (game.chal8 == 1 || game.challenge==6||game.challenge==7)) game.manualClicksLeft -= 1
     if (game.ord % game.base == game.base-1) {
-      game.over += 1000000
+      game.over += 1e30
     } else {
-      game.ord += 1000000
+      game.ord += 1e20
     }
     clickCoolDown=2
   }
@@ -79,7 +79,7 @@ function maximize(manmade=0) {
     if (game.ord % (game.base**2) != 0) {
       game.ord += game.over
     }
-    game.over = 0
+    game.over = 1e20
     clickCoolDown=2
   }
   if (manmade==1) render()
@@ -290,10 +290,10 @@ function render() {
   get("challengeSubTab").style.display=(game.upgrades.includes(4) ? "inline-block" : "none")
   get("incrementySubTab").style.display=(game.upgrades.includes(8) ? "inline-block" : "none")
   get("ordinalPointsDisplay").innerHTML = "You have " + beautify(game.OP) + " Ordinal Points"
-  get("succAutoAmount").innerHTML = "You have " + logbeautify(game.succAuto) + " successor autoclickers, clicking the successor button " + (game.succAuto>10**265?logbeautify(game.succAuto):beautify(game.succAuto*totalMult*succAutoMult)) + " times per second" 
-  get("limAutoAmount").innerHTML = "You have " + logbeautify(game.limAuto) + "  maximize autoclickers, clicking the maximize button " + (game.succAuto>10**265?logbeautify(game.succAuto):beautify(game.limAuto*totalMult*limAutoMult)) + " times per second"
-  get("buysucc").innerHTML = "Buy Successor Autobuyer for " + (game.challenge==1||game.challenge==7?(game.succAuto==1?"Infinity":"1.000e6"):beautify(Math.min(10**260+game.succAuto,100*2**game.succAuto))) + " OP"
-  get("buylim").innerHTML = "Buy Maximize Autobuyer for " + (game.challenge==1||game.challenge==7?(game.limAuto==1?"Infinity":"1.000e6"):beautify(Math.min(10**260+game.limAuto,100*2**game.limAuto))) + "  OP"
+  get("succAutoAmount").innerHTML = "You have " + logbeautify(game.succAuto) + " successor autoclickers, clicking the successor button " + (game.succAuto>10**265?logbeautify(game.succAuto*400):beautify(game.succAuto*totalMult*succAutoMult)) + " times per second" 
+  get("limAutoAmount").innerHTML = "You have " + logbeautify(game.limAuto) + "  maximize autoclickers, clicking the maximize button " + (game.succAuto>10**265?logbeautify(game.succAuto*400):beautify(game.limAuto*totalMult*limAutoMult)) + " times per second"
+  get("buysucc").innerHTML = "Buy Successor Autobuyer for " + (game.challenge==1||game.challenge==7?(game.succAuto==1?"Infinity":"1"):beautify(Math.min(10**260+game.succAuto,1*2**game.succAuto))) + " OP"
+  get("buylim").innerHTML = "Buy Maximize Autobuyer for " + (game.challenge==1||game.challenge==7?(game.limAuto==1?"Infinity":"1"):beautify(Math.min(10**260+game.limAuto,1*2**game.limAuto))) + "  OP"
   get("factorShift").innerHTML = "Factor Shift (" + game.factorShifts + "): Requires " + ((game.challenge==5||game.challenge==7) && game.factorShifts >= 2?"Infinity":(game.factorShifts==7?(game.boostUnlock?"Infinity":"Graham's number (g<sub>ψ(Ω<sup>Ω</sup>ω)</sub> (10))"):beautify(factorShiftCosts[game.factorShifts]))) +" OP"
   get("noFactors").style.display=(game.factors.length==0 ? "inline-block" : "none")
   get("factorList").style.display=(game.factors.length==0 ? "none" : "inline-block")
@@ -351,7 +351,7 @@ function render() {
   for(let i=0;i<bupUpgradeCosts.length;i++) {
     bup(i+1,(game.leastBoost<=1.5&&game.qolSM.abu==1&&(game.qolSM.ig73==0||i+1 != 10||game.challenge==4||game.challenge==6||game.challenge==7)&&(game.qolSM.igc8==0||game.chal8==0)?0:1))
   }
-  get("chalMult").textContent = "Your " + getSumOfChallenges() + " challenge completions have multiplied Tier 1 and 2 Automation by " + beautify(bfactorMult)
+  get("chalMult").textContent = "Your " + getSumOfChallenges() + " challenge completions have multiplied Tier 1 and 2 Automation by " + beautify(bfactorMult*400)
   for (let i=1;i<=9;i++) {
     iup(i,1)
   }
