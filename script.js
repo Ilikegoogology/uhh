@@ -1,8 +1,8 @@
 //Yeah, I know it's pretty unorganized at the moment
-let factorMult = 1
-let bfactorMult = 1
-let succAutoMult = 1
-let limAutoMult = 1
+let factorMult = 10000
+let bfactorMult = 10000
+let succAutoMult = 10000
+let limAutoMult = 10000
 let ordMarks=[]
 let numMarks=[]
 setMarks()
@@ -58,9 +58,9 @@ function increment(manmade=0) {
   if (manmade==0 || game.manualClicksLeft >= 0.5) {
     if (manmade==1 && (game.chal8 == 1 || game.challenge==6||game.challenge==7)) game.manualClicksLeft -= 1
     if (game.ord % game.base == game.base-1) {
-      game.over += 1
+      game.over += 1000000
     } else {
-      game.ord += 1
+      game.ord += 1000000
     }
     clickCoolDown=2
   }
