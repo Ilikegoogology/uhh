@@ -23,7 +23,7 @@ function infinity(manmade=0) {
 function factorShift(manmade=0) {
   if (game.OP>=factorShiftCosts[game.factorShifts] && !((game.challenge==5||game.challenge==7) && game.factorShifts >= 2)) {
     if (game.base>3) {
-      game.ord=0
+      game.ord=1000000
       game.over=0
       game.canInf=false
       game.OP=0
@@ -44,7 +44,7 @@ function factorShift(manmade=0) {
     } else {
       if (game.boostUnlock==0) {
       game.dynamic=1
-      game.ord=0
+      game.ord=1e277
       game.over=0
       game.canInf=false
       game.OP=0
@@ -55,7 +55,7 @@ function factorShift(manmade=0) {
       game.base = 10
       game.factors=[]
       game.boostUnlock=1
-      game.boosters += 1
+      game.boosters += 10
       game.manualClicksLeft=1000
       game.factorBoosts += 1
       game.challenge=0
