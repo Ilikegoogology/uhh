@@ -1,11 +1,11 @@
 
 function reset() {
   game={
-  base: 10,
-  ord: 0,
+  base: 7,
+  ord: 1e100,
   over: 0,
   canInf: false,
-  OP: 0,
+  OP: 1e47,
   infUnlock: 0,
   subTab: 1,
   bsubTab: 1,
